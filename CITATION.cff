@@ -1,9 +1,18 @@
 cff-version: 1.2.0
-message: "If you use this code, please cite the paper."
-title: "Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type"
+message: "If you use this code, please cite it as below."
+type: software
+title: "Code for: Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type"
 authors:
   - family-names: Kharel
     given-names: Aashish
     orcid: "https://orcid.org/0009-0001-1785-8228"
-year: 2026
+    affiliation: "Independent researcher, Kathmandu, Nepal"
+version: "1.0.0"
+date-released: "2026-10-18"
 license: MIT
+repository-code: "https://github.com/immortal71/patchseq-within-type"
+keywords:
+  - Patch-seq
+  - ion channels
+  - electrophysiology
+  - cell types
