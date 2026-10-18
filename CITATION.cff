@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type"
+authors:
+  - family-names: Kharel
+    given-names: Aashish
+    orcid: "https://orcid.org/0009-0001-1785-8228"
+year: 2026
+license: MIT

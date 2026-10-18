@@ -1,0 +1,30 @@
+feature,within_foldwise
+AP Fano factor,-0.002241522301049237
+AP amplitude (mV),0.011442677417237701
+AP amplitude adaptation index,-0.0017967476527323
+AP amplitude average adaptation index,-0.0019511725308569705
+AP coefficient of variation,-0.0027163462176800213
+AP threshold (mV),-0.0003167615418258052
+AP width (ms),0.01014000762666245
+Afterdepolarization (mV),-0.0038271961473530514
+Afterhyperpolarization (mV),0.004137464062491825
+Burstiness,-0.00469181409320929
+ISI Fano factor,-0.004603744822724076
+ISI adaptation index,-0.0011117301969127968
+ISI average adaptation index,-0.0014145082812451193
+ISI coefficient of variation,-0.006050444489641649
+Input resistance (MOhm),0.009252517726836995
+Latency (ms),-0.00013854533168022876
+Latency @ +20pA current (ms),0.013664507218333455
+Max number of APs,0.017592515152302757
+Membrane time constant (ms),0.012810314113948063
+Rebound (mV),0.013143771629642087
+Rebound number of APs,-0.005166553401055651
+Resting membrane potential (mV),-0.0037728779137775614
+Rheobase (pA),0.002743246162995039
+Sag area (mV*s),-0.00046971152267838434
+Sag ratio,0.006887418410046364
+Sag time (s),-0.001437557662447464
+Spike frequency adaptation,-0.0013274950332986535
+Upstroke-to-downstroke ratio,0.002338378599190727
+Wildness,-0.005362029143387792
