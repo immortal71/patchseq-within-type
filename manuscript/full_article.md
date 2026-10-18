@@ -28,7 +28,7 @@ Here I apply the control to 29 electrophysiological features and 13 fitted Hodgk
 
 ### Channel expression predicts electrophysiology well across all cells
 
-Using 390 channel genes and the 29 released electrophysiological features of 1,304 to 1,328 motor cortex neurons, cross-validated ridge regression reproduces the published pattern (mean R² 0.244 across features). Action potential waveform and firing features are predicted best: upstroke-to-downstroke ratio 0.681, maximum number of action potentials 0.665, action potential width 0.646 and afterhyperpolarization 0.536. Input resistance reaches 0.424 and resting membrane potential 0.117. These values agree with the preprint version of this analysis to within 0.03 for every feature named here.
+Using 390 channel genes and the 29 released electrophysiological features of 1,304 to 1,328 motor cortex neurons, cross-validated ridge regression reproduces the published pattern (mean R² 0.244 across features). Action potential waveform and firing features are predicted best: upstroke-to-downstroke ratio 0.681, maximum number of action potentials 0.665, action potential width 0.646 and afterhyperpolarization 0.536. Input resistance reaches 0.424 and resting membrane potential 0.117.
 
 ### Almost all of that accuracy is lost within transcriptomic type
 
@@ -36,7 +36,7 @@ Restricting to the 28 types with at least 15 cells (946 to 969 cells) and fittin
 
 Raw accuracy still ranks features sensibly. Across the 29 features, raw and within-type R² are correlated (Spearman ρ = 0.75, p < 0.0001; Figure 1b). The observed within-type values, however, are 30 to 250 times smaller than the raw values for the best predicted features.
 
-The collapse is not specific to ridge regression. In the preprint version of this analysis, per-feature elastic net gave a mean within-type R² of -0.0012 and sparse reduced-rank regression (Kobak et al. 2021), the estimator class used by Bernaerts et al., gave -0.083 at rank 2, with all 29 features at or below zero.
+The collapse is not specific to ridge regression. On the same cells and folds, per-feature elastic net reaches a mean raw R² of 0.273 and a mean within-type R² of 0.0008. Reduced-rank ridge regression, which predicts all 29 features jointly through a low-rank bottleneck like the sparse reduced-rank regression used by Bernaerts et al. (Kobak et al. 2021), was fitted on the 946 cells with every feature measured. It reaches mean raw R² of 0.237 at rank 2 and 0.263 at rank 5, and mean within-type R² of 0.0010 and 0.0016; at rank 2, 17 of 29 features are at or below zero.
 
 The result does not depend on the gene list. With the 308 genes of the HGNC ion channel gene group (292 shared with the prefix set), raw R² averages 0.269 and within-type R² 0.0028.
 
@@ -68,7 +68,7 @@ If the residual largely reflects cell identity, removing a coarser or noisier id
 
 ### The Ih-linked residual depends on Hcn1
 
-Hcn1 to Hcn4 together predict sag ratio within type above random four-gene channel sets (R² 0.0075, p = 0.018), as well as sag time (0.0074, p = 0.026); sag area is borderline (0.0039, p = 0.060). Rebound (p = 0.59), membrane time constant (p = 0.80), resting potential (p = 0.10) and action potential width (p = 0.06) are not significant. Dropping Hcn1 removes the effect for all three sag measures (sag ratio -0.0023), while Hcn1 alone does slightly better than the four genes together (0.012 for sag ratio). These numbers reproduce the preprint. Because Hcn1 was singled out after the four-gene test, and the effect is small, this remains suggestive.
+Hcn1 to Hcn4 together predict sag ratio within type above random four-gene channel sets (R² 0.0075, p = 0.018; Figure 5), as well as sag time (0.0074, p = 0.026); sag area is borderline (0.0039, p = 0.060). Rebound (p = 0.59), membrane time constant (p = 0.80), resting potential (p = 0.10) and action potential width (p = 0.06) are not significant. Dropping Hcn1 removes the effect for all three sag measures (sag ratio -0.0023), while Hcn1 alone does slightly better than the four genes together (0.012 for sag ratio). Because Hcn1 was singled out after the four-gene test, and the effect is small, this remains suggestive.
 
 **Table 1. Raw and within-type prediction of 29 electrophysiological features from 390 channel genes (mouse motor cortex).** Values are cross-validated R². "Raw, all": all cells with the feature. "Raw, same", "Within" and "Within, fold-wise" use the 946 to 969 cells in the 28 types with at least 15 cells. P values from 500 within-type permutations (smallest attainable 0.002). Implied true R² from the calibration in Figure 2, given for the ten calibrated features.
 
@@ -112,11 +112,11 @@ Across all cells, ion channel expression predicts many electrophysiological feat
 
 The simplest reading is that a regression from channel expression to physiology combines two real relationships: channel expression identifies cell type, and cell type largely determines physiology. Voltage-gated channel genes are good type markers, so a model can score highly across cells while learning mostly which type a cell belongs to. Raw accuracy still ranks features in roughly the right order of within-type signal (ρ = 0.75). It should not be read as the strength of a gene-to-function link inside a cell type, and claims of that kind need a within-type figure alongside the raw one.
 
-This fits older evidence that cells of one type reach similar behaviour with different channel complements (Schulz et al. 2006; Marder & Goaillard 2006; Goaillard & Marder 2021), the finding that many cross-type gene to property correlations are class-driven (Bomkamp et al. 2019), and the observation from this same dataset that types within a family are poorly separated electrophysiologically (Scala et al. 2021). Transcript abundance also captures only one factor of membrane conductance. Conductance depends on channel number, open probability and single-channel conductance, and the mRNA count is a noisy proxy for the first of these only. Trafficking, subunit composition and modulation are invisible to it.
+This fits older evidence that cells of one type reach similar behaviour with different channel complements (Schulz et al. 2006; Marder & Goaillard 2006; Goaillard & Marder 2021), the finding that many cross-type gene to property correlations are class-driven (Bomkamp et al. 2019), and the observation from this same dataset that types within a family are poorly separated electrophysiologically (Scala et al. 2021). Biophysical models of cortical neurons point the same way: electrical features depend on synergistic combinations of conductances, whereas channel gene expression in single cells is dominated by redundancy (Reva et al. 2025). Transcript abundance also captures only one factor of membrane conductance. Conductance depends on channel number, open probability and single-channel conductance, and the mRNA count is a noisy proxy for the first of these only. Trafficking, subunit composition and modulation are invisible to it.
 
 ### Data size, revisited
 
-Bernaerts et al. (2025) attributed the loss of accuracy at the level of fine types to limited data. The preprint version of this paper argued the opposite, that the within-type quantity is too small for more data to matter. The power analysis here shows that argument went too far. At roughly 950 cells and 390 genes, a within-type effect of R² 0.05 is detected only about half the time, so the near-zero observed values are consistent with real effects of that size, and more cells would recover more of them.
+Bernaerts et al. (2025) attributed the loss of accuracy at the level of fine types to limited data. The near-zero values invite the opposite reading, that the within-type quantity is too small for more data to matter. The power analysis shows that reading goes too far. At roughly 950 cells and 390 genes, a within-type effect of R² 0.05 is detected only about half the time, so the near-zero observed values are consistent with real effects of that size, and more cells would recover more of them.
 
 What the analysis does support is a ceiling. For most features with a surviving residual, the implied true within-type R² is at or below about 0.15 even at the upper end of its range, and for resting membrane potential it is below about 0.05. Larger datasets should improve within-type prediction, and the value they approach is several times smaller than current raw figures. The two accounts, insufficient data and a small target, are both partly right, and the useful quantity for planning future datasets is the size of that target.
 
@@ -134,7 +134,7 @@ The same decomposition applies to any method that infers a functional quantity f
 
 ### Limitations
 
-All results come from one dataset, one brain region and one species. A script to repeat the main analysis on the larger mouse visual cortex Patch-seq release is provided but could not be run here because its count matrix was not reachable from the analysis environment. Transcriptomic types are defined from the transcriptome, partly including channel genes. Clusters built without any channel gene agreed only modestly with the published types and left more residual, so this check cannot exclude some circularity. The calibration assumes a linear, dense or sparse signal over the same genes; a nonlinear relationship could be recovered differently. Fitted model parameters are point estimates from a degenerate posterior, which attenuates raw and residual estimates alike. The elastic net and sRRR comparisons are carried over from the preprint rather than rerun. A learning curve was attempted and is not reported. Subsampling cells shrinks every type, and with fewer than about 10 cells per type both ways of removing type means are biased, in opposite directions, so the curve could not separate effect size from estimation error.
+All results come from one dataset, one brain region and one species. A script to repeat the main analysis on the larger mouse visual cortex Patch-seq release is provided but could not be run here because its count matrix was not reachable from the analysis environment. Transcriptomic types are defined from the transcriptome, partly including channel genes. Clusters built without any channel gene agreed only modestly with the published types and left more residual, so this check cannot exclude some circularity. The calibration assumes a linear, dense or sparse signal over the same genes; a nonlinear relationship could be recovered differently. Fitted model parameters are point estimates from a degenerate posterior, which attenuates raw and residual estimates alike. A learning curve was attempted and is not reported. Subsampling cells shrinks every type, and with fewer than about 10 cells per type both ways of removing type means are biased, in opposite directions, so the curve could not separate effect size from estimation error.
 
 ## Methods
 
@@ -148,7 +148,7 @@ Exon and intron counts were summed per gene, converted to reads per kilobase per
 
 ### Regression
 
-Each feature was predicted with ridge regression under 10-fold cross-validation. Inside each training fold, predictors were standardized with training-fold statistics and the penalty was chosen by generalized cross-validation over 30 log-spaced values from 0.01 to 100,000. Test-fold standardized values were clipped to the range seen in the training fold; without this, a gene that is almost constant in one training fold produced extreme predictions for single test cells. R² was computed once on the pooled held-out predictions against the total sum of squares. Elastic net and sparse reduced-rank regression (sRRR) results are taken from the preprint version of this work and are labelled as such.
+Each feature was predicted with ridge regression under 10-fold cross-validation. Inside each training fold, predictors were standardized with training-fold statistics and the penalty was chosen by generalized cross-validation over 30 log-spaced values from 0.01 to 100,000. Test-fold standardized values were clipped to the range seen in the training fold; without this, a gene that is almost constant in one training fold produced extreme predictions for single test cells. R² was computed once on the pooled held-out predictions against the total sum of squares. For comparison, the same outer folds were used with two other estimators. Elastic net was fitted per feature, with penalty strength (30 values) and l1 ratio (0.1, 0.5 or 0.9) chosen by inner 5-fold cross-validation in each training fold. Reduced-rank ridge regression fitted all 29 standardized features jointly: a ridge fit with the penalty chosen by generalized cross-validation, whose coefficients were then projected onto the top two or five right singular vectors of the fitted training values.
 
 ### Within-group control
 
@@ -172,11 +172,11 @@ To check that the result does not depend on labels derived from the tested genes
 
 ### HCN test
 
-Within type, Hcn1 to Hcn4 were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and Hcn1-only fits were also run. The four-gene test and its features were specified in the preprint before it was first run.
+Within type, Hcn1 to Hcn4 were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and Hcn1-only fits were also run. The four-gene test and its seven features were fixed before the test was first run.
 
 ### Visual cortex replication
 
-A script that applies the same pipeline to the mouse visual cortex Patch-seq release (Gouwens et al. 2020; 23 features as extracted by Bernaerts et al. 2025) is provided. That release contains exon counts without gene lengths, so expression is log(1 + counts per million).
+A script that applies the same pipeline to the mouse visual cortex Patch-seq release of Gouwens et al. (2020), using the 23 features extracted by Bernaerts et al. (2025), is provided. That release contains exon counts without gene lengths, so expression is log(1 + counts per million).
 
 ### Software and availability
 
@@ -239,6 +239,8 @@ Lipovsek M, Bardy C, Cadwell CR, Hadley K, Kobak D, Tripathy SJ. Patch-seq: past
 Marder E, Goaillard JM. Variability, compensation and homeostasis in neuron and network function. Nat Rev Neurosci. 2006;7(7):563-574. doi:10.1038/nrn1949
 
 Prinz AA, Bucher D, Marder E. Similar network activity from disparate circuit parameters. Nat Neurosci. 2004;7(12):1345-1352. doi:10.1038/nn1352
+
+Reva M, Arnaudon A, Zbili M, Makkeh A, Markram H, Goaillard JM, Van Geit W. Higher-order interactions in neuronal function: from genes to ionic currents in biophysical models. Proc Natl Acad Sci U S A. 2025;122(40):e2500048122. doi:10.1073/pnas.2500048122
 
 Scala F, Kobak D, Bernabucci M, et al. Phenotypic variation of transcriptomic cell types in mouse motor cortex. Nature. 2021;598(7879):144-150. doi:10.1038/s41586-020-2907-3
 

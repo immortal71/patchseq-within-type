@@ -10,7 +10,7 @@ Exon and intron counts were summed per gene, converted to reads per kilobase per
 
 ### Regression
 
-Each feature was predicted with ridge regression under 10-fold cross-validation. Inside each training fold, predictors were standardized with training-fold statistics and the penalty was chosen by generalized cross-validation over 30 log-spaced values from 0.01 to 100,000. Test-fold standardized values were clipped to the range seen in the training fold; without this, a gene that is almost constant in one training fold produced extreme predictions for single test cells. R² was computed once on the pooled held-out predictions against the total sum of squares. Elastic net and sparse reduced-rank regression (sRRR) results are taken from the preprint version of this work and are labelled as such.
+Each feature was predicted with ridge regression under 10-fold cross-validation. Inside each training fold, predictors were standardized with training-fold statistics and the penalty was chosen by generalized cross-validation over 30 log-spaced values from 0.01 to 100,000. Test-fold standardized values were clipped to the range seen in the training fold; without this, a gene that is almost constant in one training fold produced extreme predictions for single test cells. R² was computed once on the pooled held-out predictions against the total sum of squares. For comparison, the same outer folds were used with two other estimators. Elastic net was fitted per feature, with penalty strength (30 values) and l1 ratio (0.1, 0.5 or 0.9) chosen by inner 5-fold cross-validation in each training fold. Reduced-rank ridge regression fitted all 29 standardized features jointly: a ridge fit with the penalty chosen by generalized cross-validation, whose coefficients were then projected onto the top two or five right singular vectors of the fitted training values.
 
 ### Within-group control
 
@@ -34,11 +34,11 @@ To check that the result does not depend on labels derived from the tested genes
 
 ### HCN test
 
-Within type, Hcn1 to Hcn4 were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and Hcn1-only fits were also run. The four-gene test and its features were specified in the preprint before it was first run.
+Within type, Hcn1 to Hcn4 were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and Hcn1-only fits were also run. The four-gene test and its seven features were fixed before the test was first run.
 
 ### Visual cortex replication
 
-A script that applies the same pipeline to the mouse visual cortex Patch-seq release (Gouwens et al. 2020; 23 features as extracted by Bernaerts et al. 2025) is provided. That release contains exon counts without gene lengths, so expression is log(1 + counts per million).
+A script that applies the same pipeline to the mouse visual cortex Patch-seq release of Gouwens et al. (2020), using the 23 features extracted by Bernaerts et al. (2025), is provided. That release contains exon counts without gene lengths, so expression is log(1 + counts per million).
 
 ### Software and availability
 

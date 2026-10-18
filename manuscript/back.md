@@ -52,6 +52,8 @@ Marder E, Goaillard JM. Variability, compensation and homeostasis in neuron and 
 
 Prinz AA, Bucher D, Marder E. Similar network activity from disparate circuit parameters. Nat Neurosci. 2004;7(12):1345-1352. doi:10.1038/nn1352
 
+Reva M, Arnaudon A, Zbili M, Makkeh A, Markram H, Goaillard JM, Van Geit W. Higher-order interactions in neuronal function: from genes to ionic currents in biophysical models. Proc Natl Acad Sci U S A. 2025;122(40):e2500048122. doi:10.1073/pnas.2500048122
+
 Scala F, Kobak D, Bernabucci M, et al. Phenotypic variation of transcriptomic cell types in mouse motor cortex. Nature. 2021;598(7879):144-150. doi:10.1038/s41586-020-2907-3
 
 Schulz DJ, Goaillard JM, Marder E. Variable channel expression in identified single and electrically coupled neurons in different animals. Nat Neurosci. 2006;9(3):356-362. doi:10.1038/nn1639

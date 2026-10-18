@@ -2,7 +2,7 @@
 
 Code, results and figures for:
 
-> Kharel A. *Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type.* 2026. Preprint: [DOI to be added]
+> Kharel A. *Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type.* 2026. Preprint: Preprints.org, submitted October 2026 (DOI to be added)
 
 The question: when ion channel gene expression predicts a neuron's electrophysiology, how much of that accuracy is a relationship *within* a transcriptomic cell type, and how much is just telling cell types apart?
 
@@ -11,6 +11,7 @@ Main results (mouse motor cortex, Scala et al. 2021):
 - Mean cross-validated R² across 29 features: 0.270 raw, 0.0024 after removing type means (same cells).
 - 12 of 29 features keep a within-type residual above a permutation null (7 after FDR); resting potential keeps none (p = 0.76).
 - Calibrating against planted effects, the true within-type R² for the best-predicted features is about 0.05 to 0.10, roughly 4 to 14 times below raw.
+- Elastic net and reduced-rank regression give the same picture (within-type means 0.0008 and 0.0010).
 - Fitted Hodgkin-Huxley parameters (Bernaerts et al. 2025): within-type and within-family R² are about zero.
 
 ## Reproduce
@@ -21,6 +22,7 @@ pip install -r requirements.txt
 python scripts/01_baseline.py      # raw vs within-type, 29 features
 python scripts/02_permutation.py   # 500x within-type permutation null + family control
 python scripts/09_foldwise.py      # type means estimated inside training folds
+python scripts/11_estimators.py    # elastic net and reduced-rank regression
 python scripts/10_calibration.py   # planted-effect calibration (needs 02 output)
 python scripts/04_power.py         # earlier power check, dense and sparse signals
 python scripts/05_labels_genesets.py  # non-channel clusters, HGNC gene list

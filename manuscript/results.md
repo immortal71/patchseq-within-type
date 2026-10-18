@@ -2,7 +2,7 @@
 
 ### Channel expression predicts electrophysiology well across all cells
 
-Using 390 channel genes and the 29 released electrophysiological features of 1,304 to 1,328 motor cortex neurons, cross-validated ridge regression reproduces the published pattern (mean R² 0.244 across features). Action potential waveform and firing features are predicted best: upstroke-to-downstroke ratio 0.681, maximum number of action potentials 0.665, action potential width 0.646 and afterhyperpolarization 0.536. Input resistance reaches 0.424 and resting membrane potential 0.117. These values agree with the preprint version of this analysis to within 0.03 for every feature named here.
+Using 390 channel genes and the 29 released electrophysiological features of 1,304 to 1,328 motor cortex neurons, cross-validated ridge regression reproduces the published pattern (mean R² 0.244 across features). Action potential waveform and firing features are predicted best: upstroke-to-downstroke ratio 0.681, maximum number of action potentials 0.665, action potential width 0.646 and afterhyperpolarization 0.536. Input resistance reaches 0.424 and resting membrane potential 0.117.
 
 ### Almost all of that accuracy is lost within transcriptomic type
 
@@ -10,7 +10,7 @@ Restricting to the 28 types with at least 15 cells (946 to 969 cells) and fittin
 
 Raw accuracy still ranks features sensibly. Across the 29 features, raw and within-type R² are correlated (Spearman ρ = 0.75, p < 0.0001; Figure 1b). The observed within-type values, however, are 30 to 250 times smaller than the raw values for the best predicted features.
 
-The collapse is not specific to ridge regression. In the preprint version of this analysis, per-feature elastic net gave a mean within-type R² of -0.0012 and sparse reduced-rank regression (Kobak et al. 2021), the estimator class used by Bernaerts et al., gave -0.083 at rank 2, with all 29 features at or below zero.
+The collapse is not specific to ridge regression. On the same cells and folds, per-feature elastic net reaches a mean raw R² of 0.273 and a mean within-type R² of 0.0008. Reduced-rank ridge regression, which predicts all 29 features jointly through a low-rank bottleneck like the sparse reduced-rank regression used by Bernaerts et al. (Kobak et al. 2021), was fitted on the 946 cells with every feature measured. It reaches mean raw R² of 0.237 at rank 2 and 0.263 at rank 5, and mean within-type R² of 0.0010 and 0.0016; at rank 2, 17 of 29 features are at or below zero.
 
 The result does not depend on the gene list. With the 308 genes of the HGNC ion channel gene group (292 shared with the prefix set), raw R² averages 0.269 and within-type R² 0.0028.
 
@@ -42,4 +42,4 @@ If the residual largely reflects cell identity, removing a coarser or noisier id
 
 ### The Ih-linked residual depends on Hcn1
 
-Hcn1 to Hcn4 together predict sag ratio within type above random four-gene channel sets (R² 0.0075, p = 0.018), as well as sag time (0.0074, p = 0.026); sag area is borderline (0.0039, p = 0.060). Rebound (p = 0.59), membrane time constant (p = 0.80), resting potential (p = 0.10) and action potential width (p = 0.06) are not significant. Dropping Hcn1 removes the effect for all three sag measures (sag ratio -0.0023), while Hcn1 alone does slightly better than the four genes together (0.012 for sag ratio). These numbers reproduce the preprint. Because Hcn1 was singled out after the four-gene test, and the effect is small, this remains suggestive.
+Hcn1 to Hcn4 together predict sag ratio within type above random four-gene channel sets (R² 0.0075, p = 0.018; Figure 5), as well as sag time (0.0074, p = 0.026); sag area is borderline (0.0039, p = 0.060). Rebound (p = 0.59), membrane time constant (p = 0.80), resting potential (p = 0.10) and action potential width (p = 0.06) are not significant. Dropping Hcn1 removes the effect for all three sag measures (sag ratio -0.0023), while Hcn1 alone does slightly better than the four genes together (0.012 for sag ratio). Because Hcn1 was singled out after the four-gene test, and the effect is small, this remains suggestive.
