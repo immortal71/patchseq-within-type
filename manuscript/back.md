@@ -12,7 +12,7 @@
 
 ## Data and code availability
 
-All input data are public: github.com/berenslab/mini-atlas (Scala et al. 2021) and github.com/berenslab/hh_sbi (Bernaerts et al. 2025). Every analysis script, result table and figure script is available at https://github.com/immortal71/patchseq-within-type under the MIT licence. The visual cortex replication script requires the Allen Institute mouse visual cortex Patch-seq release (Gouwens et al. 2020).
+All input data are public: github.com/berenslab/mini-atlas (Scala et al. 2021) and github.com/berenslab/hh_sbi (Bernaerts et al. 2025). Every analysis script, result table and figure script is available at https://github.com/immortal71/patchseq-within-type under the MIT licence and archived on Zenodo (https://doi.org/10.5281/zenodo.23451340). The visual cortex replication script requires the Allen Institute mouse visual cortex Patch-seq release (Gouwens et al. 2020).
 
 ## Funding
 

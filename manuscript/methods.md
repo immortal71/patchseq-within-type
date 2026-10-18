@@ -42,7 +42,7 @@ A script that applies the same pipeline to the mouse visual cortex Patch-seq rel
 
 ### Software and availability
 
-Python 3 with NumPy, pandas and scikit-learn 1.9. All scripts download or read only public inputs and are available at https://github.com/immortal71/patchseq-within-type.
+Python 3 with NumPy, pandas and scikit-learn 1.9. All scripts download or read only public inputs and are available at https://github.com/immortal71/patchseq-within-type and archived on Zenodo (https://doi.org/10.5281/zenodo.23451340).
 
 ### Use of AI tools
 
