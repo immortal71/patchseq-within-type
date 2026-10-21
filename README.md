@@ -2,7 +2,7 @@
 
 Code, results and figures for:
 
-> Kharel A. *Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type.* 2026. Preprint: Preprints.org, submitted October 2026 (DOI to be added). Code archive: [10.5281/zenodo.23451340](https://doi.org/10.5281/zenodo.23451340)
+> Kharel A. *Ion channel expression mostly predicts neuronal cell identity, and only weakly predicts electrophysiology within a cell type.* 2026. Manuscript in preparation for journal submission. Code archive: [10.5281/zenodo.23451340](https://doi.org/10.5281/zenodo.23451340)
 
 The question: when ion channel gene expression predicts a neuron's electrophysiology, how much of that accuracy is a relationship *within* a transcriptomic cell type, and how much is just telling cell types apart?
 
