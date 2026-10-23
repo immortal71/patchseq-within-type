@@ -22,7 +22,7 @@ For each feature, the within-type residual target was permuted inside each type 
 
 ### Fitted Hodgkin-Huxley parameters
 
-For the 13 fitted parameters, the preprocessing of Bernaerts et al. (2025) was reproduced: their Gene Ontology ion channel list (matched by symbol) plus Pvalb, Lamp5, Vip and Sst; exon counts only; genes with at least 10 total counts; counts scaled to the median of the selected genes' library size; log2(x + 1). This gave 427 genes and 955 cells. The maximum a posteriori parameters are the highest-evaluation posterior sample per cell from their preferred training schedule. Raw, within-type (19 types with at least 15 cells, 668 cells) and within-family (7 families, 942 cells) R² and a 200-permutation within-type null were computed as above, fitting all parameters jointly.
+For the 13 fitted parameters, the preprocessing of Bernaerts et al. (2025) was reproduced: their Gene Ontology ion channel list (matched by symbol) plus *Pvalb*, *Lamp5*, *Vip* and *Sst*; exon counts only; genes with at least 10 total counts; counts scaled to the median of the selected genes' library size; log2(x + 1). This gave 427 genes and 955 cells. The maximum a posteriori parameters are the highest-evaluation posterior sample per cell from their preferred training schedule. Raw, within-type (19 types with at least 15 cells, 668 cells) and within-family (7 families, 942 cells) R² and a 200-permutation within-type null were computed as above, fitting all parameters jointly.
 
 ### Power and calibration
 
@@ -34,7 +34,7 @@ To check that the result does not depend on labels derived from the tested genes
 
 ### HCN test
 
-Within type, Hcn1 to Hcn4 were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and Hcn1-only fits were also run. The four-gene test and its seven features were fixed before the test was first run.
+Within type, *Hcn1* to *Hcn4* were used as the only predictors for seven features and compared with 500 random sets of four other channel genes. Leave-one-gene-out and *Hcn1*-only fits were also run. The four-gene test and its seven features were fixed before the test was first run.
 
 ### Visual cortex replication
 
